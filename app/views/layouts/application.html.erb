@@ -27,10 +27,18 @@
       <ul class="nav navbar-nav navbar-right">
         <li><%= link_to "home", root_path %></li>
         <li><%= link_to "about", about_path %></li>
-      </ul>
-    </div><!-- /.navbar-collapse -->
+        <% if user_signed_in? %>
+          <li><%= link_to "log out", destroy_user_session_path, method: :delete %></li>
+        <%else%>
+          <li><%= link_to "sign in", new_user_session_path %></li>
+        <%end%>
+     </ul>
+   </div><!-- /.navbar-collapse -->
 </nav>
 <div class="container">
+   <% flash.each do|name, msg| %>
+    <%= content_tag(:div, msg, class: "alert alert-info") %>
+   <% end %>
      <%= yield %>
 </div>
 

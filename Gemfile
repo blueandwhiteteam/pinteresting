@@ -46,4 +46,5 @@ group :production do
 end
 
 gem 'bootstrap-sass'
+gem 'devise', '~> 3.3.0'
 gem 'tzinfo-data', platforms: [:mingw, :mswin]
