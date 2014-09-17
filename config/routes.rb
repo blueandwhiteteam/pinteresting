@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :pins
+
   devise_for :installs
   devise_for :users
   root 'pages#home'
